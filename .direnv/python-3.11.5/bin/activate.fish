@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/will/FirstProj/.direnv/python-3.11.5"
+set -gx VIRTUAL_ENV "/home/will/PROJS/TUTS/Django/FirstProj/.direnv/python-3.11.5"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

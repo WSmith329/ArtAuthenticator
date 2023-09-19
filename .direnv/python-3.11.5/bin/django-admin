@@ -1,4 +1,4 @@
-#!/home/will/FirstProj/.direnv/python-3.11.5/bin/python
+#!/home/will/PROJS/TUTS/Django/FirstProj/.direnv/python-3.11.5/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

@@ -2,6 +2,9 @@ from django.contrib import admin
 
 from .models import Application, Art, Authentication, CreationDate, Technique, Genre, Commissioner, Applicant, AuthenticationDocument, Photo, Signature
 
+from admin_extra_buttons.api import ExtraButtonsMixin, button, confirm_action, link, view
+from admin_extra_buttons.utils import HttpResponseRedirectToReferrer
+
 
 class PhotoInline(admin.TabularInline):
     model = Photo
@@ -61,7 +64,15 @@ class AuthenticationAdmin(admin.ModelAdmin):
     ]
 
 
-class ApplicationAdmin(admin.ModelAdmin):
+class ApplicationAdmin(ExtraButtonsMixin, admin.ModelAdmin):
+    @button(html_attrs={'style': 'background-color:#DC6C6C;color:black'})
+    def confirm(self, request):
+        def _action(request):
+            pass
+
+        return confirm_action(self, request, _action, "Confirm action",
+                              "Successfully executed", )
+
     list_display = ["id", "art", "authentication"]
 
 

@@ -1,0 +1,7 @@
+{% load static %}
+
+<ul>
+    {% for application in application_list %}
+        <li>{{ application.art.title }} by {{ application.authentication.applicant_id }}</li>
+    {% endfor %}
+</ul>

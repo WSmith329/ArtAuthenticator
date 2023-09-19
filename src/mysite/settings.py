@@ -37,13 +37,13 @@ INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'art_auth.apps.ArtAuthConfig',
     'debug_toolbar',
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django.contrib.admin',
 ]
 
 MIDDLEWARE = [

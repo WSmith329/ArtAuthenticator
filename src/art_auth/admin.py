@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Application, Art, Authentication, CreationDate, Technique, Genre, Commissioner, Applicant, AuthenticationDocument, Photo
+from .models import Application, Art, Authentication, CreationDate, Technique, Genre, Commissioner, Applicant, AuthenticationDocument, Photo, Signature
 
 
 class PhotoInline(admin.TabularInline):
@@ -8,8 +8,13 @@ class PhotoInline(admin.TabularInline):
     extra = 1
 
 
+class SignatureInline(admin.TabularInline):
+    model = Signature
+    extra = 1
+
+
 class ArtAdmin(admin.ModelAdmin):
-    inlines = [PhotoInline]
+    inlines = [PhotoInline, SignatureInline]
 
     list_display = ["id", "title", "archive_code"]
     list_filter = [

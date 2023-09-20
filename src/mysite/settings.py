@@ -36,8 +36,8 @@ INTERNAL_IPS = [
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'art_auth.apps.ArtAuthConfig',
+    'mysite.apps.CustomAdminConfig',
     'debug_toolbar',
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

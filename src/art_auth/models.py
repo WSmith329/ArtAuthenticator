@@ -57,6 +57,24 @@ class Art(models.Model):
         return str(self.title)
 
 
+class Owner(models.Model):
+    name = models.CharField(max_length=100)
+    art = models.ManyToManyField(Art, through="Ownership")
+
+    def __str__(self):
+        return self.name
+
+
+class Ownership(models.Model):
+    art = models.ForeignKey(Art, on_delete=models.CASCADE)
+    owner = models.ForeignKey(Owner, on_delete=models.CASCADE)
+    start_date = models.DateField(blank=True, null=True)
+    end_date = models.DateField(blank=True, null=True)
+
+    def __str__(self):
+        return self.art.title + " by " + self.owner.name
+
+
 class Signature(models.Model):
     FRONT = "F"
     BACK = "B"

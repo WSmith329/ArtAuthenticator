@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Application, Art, Authentication, CreationDate, Technique, Genre, Commissioner, Applicant, AuthenticationDocument, Photo, Signature
+from .models import Application, Art, Authentication, CreationDate, Technique, Genre, Commissioner, Applicant, AuthenticationDocument, Photo, Signature, Owner, Ownership
 
 from admin_extra_buttons.api import ExtraButtonsMixin, button, confirm_action, link, view
 from admin_extra_buttons.utils import HttpResponseRedirectToReferrer
@@ -110,3 +110,6 @@ admin.site.register(Commissioner, CommissionerAdmin)
 admin.site.register(Authentication, AuthenticationAdmin)
 
 admin.site.register(Application, ApplicationAdmin)
+
+admin.site.register(Owner)
+admin.site.register(Ownership)

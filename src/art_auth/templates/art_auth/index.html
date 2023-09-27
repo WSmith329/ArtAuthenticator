@@ -1,7 +1,16 @@
 {% load static %}
 
-<ul>
-    {% for application in application_list %}
-        <li>{{ application.art.title }} by {{ application.authentication.applicant_id }}</li>
+<div style="display: flex; gap: 50px">
+    {% for art, history in owner_history.items %}
+        <div style="background-color: grey">
+            <h3 style="color: white">{{ art.title }}</h3>
+            {% for ownership in history %}
+                <div style="background-color: lightgrey">
+                <p>Owned by: {{ ownership.owner.name }}</p>
+                <p>From: {{ ownership.start_date }}</p>
+                <p>To: {{ ownership.end_date }}</p>
+                </div>
+            {% endfor %}
+        </div>
     {% endfor %}
-</ul>
+</div>

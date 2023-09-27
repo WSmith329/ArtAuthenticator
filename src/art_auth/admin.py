@@ -100,6 +100,14 @@ class CreationDateAdmin(admin.ModelAdmin):
     list_display = ["id", "date"]
 
 
+class OwnerAdmin(admin.ModelAdmin):
+    search_fields = ["name"]
+
+
+class OwnershipAdmin(admin.ModelAdmin):
+    autocomplete_fields = ["owner"]
+
+
 admin.site.register(Genre, GenreAdmin)
 admin.site.register(Technique, TechniqueAdmin)
 admin.site.register(CreationDate, CreationDateAdmin)
@@ -111,5 +119,5 @@ admin.site.register(Authentication, AuthenticationAdmin)
 
 admin.site.register(Application, ApplicationAdmin)
 
-admin.site.register(Owner)
-admin.site.register(Ownership)
+admin.site.register(Owner, OwnerAdmin)
+admin.site.register(Ownership, OwnershipAdmin)

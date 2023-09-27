@@ -1,13 +1,18 @@
 from django.shortcuts import render
-from django.views import generic
+from django.views import View
 from django.urls import reverse
 
-from .models import Art, Authentication, Application
+from .models import Art, Authentication, Application, Owner, Ownership
 
 
-class IndexView(generic.ListView):
+class IndexView(View):
     template_name = "art_auth/index.html"
-    context_object_name = "application_list"
 
-    def get_queryset(self):
-        return Application.objects.all()
+    def get(self, request):
+        owned_art = Art.objects.filter(ownership__owner__isnull=False).distinct()
+        art_ownerships = {}
+
+        for a in owned_art:
+            art_ownerships[a] = list(a.ownership_set.all())
+
+        return render(request, self.template_name, {'owner_history': art_ownerships})

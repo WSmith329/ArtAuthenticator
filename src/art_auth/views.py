@@ -13,6 +13,6 @@ class IndexView(View):
         art_ownerships = {}
 
         for a in owned_art:
-            art_ownerships[a] = list(a.ownership_set.all())
+            art_ownerships[a] = list(a.ownership_set.order_by("start_date").all())
 
         return render(request, self.template_name, {'owner_history': art_ownerships})
